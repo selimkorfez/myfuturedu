@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Future Education — Turkish Lessons for Children</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C0392B;
+    --red-light: #E74C3C;
+    --cream: #FDF6EC;
+    --warm: #F5EDD8;
+    --dark: #1A1208;
+    --mid: #4A3728;
+    --muted: #8C7B6E;
+    --white: #FFFFFF;
+    --border: #E8DDD0;
+    --green: #27AE60;
+    --blue: #2980B9;
+    --gold: #D4A843;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; }
+  
+  /* NAV */
+  nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 0 5%; }
+  .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-flag { width: 32px; height: 22px; background: var(--red); border-radius: 3px; position: relative; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logo-flag::after { content: '☽'; color: white; font-size: 13px; }
+  .logo-text { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--dark); line-height: 1.1; }
+  .logo-sub { font-size: 11px; color: var(--muted); font-weight: 400; letter-spacing: 0.05em; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--mid); transition: color .2s; }
+  .nav-links a:hover { color: var(--red); }
+  .nav-btns { display: flex; gap: 10px; }
+  .btn-outline { padding: 8px 18px; border: 1.5px solid var(--red); color: var(--red); background: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .2s; font-family: inherit; }
+  .btn-outline:hover { background: var(--red); color: white; }
+  .btn-solid { padding: 8px 18px; background: var(--red); color: white; border: none; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .2s; font-family: inherit; }
+  .btn-solid:hover { background: #a93226; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #1A1208 0%, #2C1810 40%, #3D2214 100%); color: white; padding: 90px 5%; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 400px; height: 400px; background: var(--red); opacity: 0.08; border-radius: 50%; }
+  .hero::after { content: ''; position: absolute; bottom: -80px; left: 20%; width: 300px; height: 300px; background: var(--gold); opacity: 0.05; border-radius: 50%; }
+  .hero-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center; position: relative; z-index: 1; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(192,57,43,0.25); border: 1px solid rgba(192,57,43,0.4); color: #FFAA99; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 22px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p { font-size: 17px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 34px; max-width: 520px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-hero { padding: 14px 28px; background: var(--red); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all .2s; font-family: inherit; }
+  .btn-hero:hover { background: #a93226; transform: translateY(-1px); }
+  .btn-hero-outline { padding: 14px 28px; background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.35); border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer; transition: all .2s; font-family: inherit; }
+  .btn-hero-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+  .hero-stats { display: flex; gap: 30px; margin-top: 42px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .stat { text-align: left; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: white; line-height: 1; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+  /* BOOKING CARD */
+  .booking-card { background: white; border-radius: 16px; padding: 32px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .booking-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 20px; color: var(--dark); }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+  .form-group input, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-family: inherit; color: var(--dark); background: var(--cream); transition: border-color .2s; outline: none; }
+  .form-group input:focus, .form-group select:focus { border-color: var(--red); background: white; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .btn-book { width: 100%; padding: 13px; background: var(--red); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .2s; margin-top: 4px; }
+  .btn-book:hover { background: #a93226; }
+
+  /* SECTIONS */
+  section { padding: 80px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 16px; }
+  .section-sub { font-size: 16px; color: var(--muted); max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
+
+  /* COURSES */
+  .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .course-card { background: white; border-radius: 14px; border: 1.5px solid var(--border); overflow: hidden; transition: transform .2s, box-shadow .2s; cursor: pointer; }
+  .course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .course-top { padding: 24px 24px 18px; border-bottom: 1px solid var(--border); }
+  .course-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 14px; }
+  .course-icon.red { background: #FEE7E5; }
+  .course-icon.blue { background: #E5F0FF; }
+  .course-icon.green { background: #E5F7EC; }
+  .course-icon.gold { background: #FEF6E5; }
+  .course-level { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; display: inline-block; }
+  .level-beginner { background: #E5F7EC; color: #1A7A3C; }
+  .level-gcse { background: #E5F0FF; color: #1A4B8C; }
+  .level-alevel { background: #FEF6E5; color: #7A5010; }
+  .level-primary { background: #FFF0E5; color: #8C3A10; }
+  .course-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+  .course-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .course-bottom { padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .course-price { font-size: 20px; font-weight: 700; color: var(--dark); }
+  .course-price span { font-size: 12px; color: var(--muted); font-weight: 400; }
+  .btn-enrol { padding: 8px 18px; background: var(--red); color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .2s; }
+  .btn-enrol:hover { background: #a93226; }
+
+  /* PRICING */
+  .pricing-bg { background: var(--warm); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .price-card { background: white; border-radius: 16px; border: 1.5px solid var(--border); padding: 32px; position: relative; transition: transform .2s; }
+  .price-card:hover { transform: translateY(-3px); }
+  .price-card.featured { border-color: var(--red); border-width: 2px; }
+  .price-popular { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--red); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; padding: 4px 16px; border-radius: 20px; text-transform: uppercase; white-space: nowrap; }
+  .price-tier { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--dark); line-height: 1; }
+  .price-amount sup { font-size: 20px; vertical-align: top; margin-top: 8px; display: inline-block; }
+  .price-period { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+  .price-features { list-style: none; margin-bottom: 28px; }
+  .price-features li { padding: 8px 0; font-size: 14px; color: var(--mid); border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start; }
+  .price-features li:last-child { border-bottom: none; }
+  .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+  .btn-price { width: 100%; padding: 12px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all .2s; }
+  .btn-price-outline { background: none; color: var(--red); border: 1.5px solid var(--red); }
+  .btn-price-outline:hover { background: var(--red); color: white; }
+  .btn-price-solid { background: var(--red); color: white; border: none; }
+  .btn-price-solid:hover { background: #a93226; }
+
+  /* CALENDAR */
+  .calendar-wrap { background: white; border-radius: 16px; border: 1.5px solid var(--border); padding: 28px; max-width: 480px; }
+  .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+  .cal-month { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--dark); }
+  .cal-nav { display: flex; gap: 8px; }
+  .cal-btn { width: 32px; height: 32px; border: 1.5px solid var(--border); border-radius: 8px; background: none; cursor: pointer; font-size: 16px; color: var(--mid); display: flex; align-items: center; justify-content: center; transition: all .2s; }
+  .cal-btn:hover { border-color: var(--red); color: var(--red); }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-day-name { text-align: center; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; padding: 6px 0; letter-spacing: 0.05em; }
+  .cal-day { text-align: center; padding: 8px 4px; font-size: 14px; border-radius: 8px; cursor: pointer; transition: all .15s; color: var(--mid); }
+  .cal-day:hover { background: var(--warm); }
+  .cal-day.empty { cursor: default; }
+  .cal-day.today { font-weight: 700; color: var(--red); }
+  .cal-day.has-slot { background: #FEE7E5; color: var(--red); font-weight: 600; }
+  .cal-day.selected { background: var(--red); color: white !important; font-weight: 600; }
+  .cal-day.past { color: var(--border); cursor: default; }
+  .cal-legend { display: flex; gap: 16px; margin-top: 16px; font-size: 12px; color: var(--muted); }
+  .cal-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; margin-top: 2px; }
+  
+  .booking-section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .booking-right { }
+  .time-slots { margin-top: 20px; }
+  .time-slots h4 { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 14px; }
+  .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .slot { padding: 10px 8px; border: 1.5px solid var(--border); border-radius: 8px; text-align: center; font-size: 13px; cursor: pointer; transition: all .15s; color: var(--mid); background: white; }
+  .slot:hover { border-color: var(--red); color: var(--red); }
+  .slot.selected { background: var(--red); border-color: var(--red); color: white; font-weight: 600; }
+  .slot.full { background: var(--warm); color: var(--border); cursor: not-allowed; text-decoration: line-through; font-size: 12px; }
+  .booking-form-mini { background: white; border: 1.5px solid var(--border); border-radius: 14px; padding: 24px; margin-top: 20px; }
+  .booking-form-mini h4 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 18px; color: var(--dark); }
+
+  /* ACCOUNT MODAL */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+  .modal-overlay.open { display: flex; }
+  .modal { background: white; border-radius: 18px; width: 100%; max-width: 480px; overflow: hidden; }
+  .modal-header { padding: 28px 32px 0; }
+  .modal-header h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--dark); }
+  .modal-header p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+  .modal-tabs { display: flex; border-bottom: 1.5px solid var(--border); margin: 20px 0 0; }
+  .modal-tab { padding: 10px 28px; font-size: 14px; font-weight: 600; cursor: pointer; border-bottom: 2.5px solid transparent; margin-bottom: -1.5px; color: var(--muted); transition: all .2s; }
+  .modal-tab.active { color: var(--red); border-bottom-color: var(--red); }
+  .modal-body { padding: 28px 32px 32px; }
+  .modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; font-size: 22px; cursor: pointer; color: var(--muted); line-height: 1; }
+  .modal-header { position: relative; }
+  .account-fields { display: flex; flex-direction: column; gap: 14px; }
+  .account-fields .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-image-area { position: relative; }
+  .about-img-placeholder { background: linear-gradient(145deg, #2C1810, #4A2E1C); border-radius: 20px; height: 420px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: rgba(255,255,255,0.5); font-size: 60px; position: relative; overflow: hidden; }
+  .about-img-placeholder::after { content: 'Sevgi Körfez\nTeacher & Founder'; color: rgba(255,255,255,0.8); font-size: 16px; font-family: 'DM Sans', sans-serif; text-align: center; white-space: pre; line-height: 1.6; }
+  .about-badge-wrap { position: absolute; bottom: -16px; right: -16px; background: white; border-radius: 14px; padding: 16px 20px; border: 1.5px solid var(--border); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+  .about-badge-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--dark); }
+  .about-badge-label { font-size: 12px; color: var(--muted); }
+  .about-content h2 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; line-height: 1.25; margin-bottom: 18px; }
+  .about-content p { font-size: 15px; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+  .feature-list { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  .feature-item { display: flex; gap: 12px; align-items: flex-start; }
+  .feature-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--red); flex-shrink: 0; margin-top: 3px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 700; }
+  .feature-text { font-size: 14px; color: var(--mid); line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testimonials-bg { background: var(--dark); }
+  .testimonials-bg .section-label { color: #FFAA88; }
+  .testimonials-bg .section-title { color: white; }
+  .testimonials-bg .section-sub { color: rgba(255,255,255,0.55); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .testi-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px; }
+  .testi-stars { color: var(--gold); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: white; flex-shrink: 0; }
+  .testi-name { font-size: 14px; font-weight: 600; color: white; }
+  .testi-child { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+  /* FOOTER */
+  footer { background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 56px 5% 32px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+  .footer-brand .logo-text { color: white; font-size: 22px; }
+  .footer-brand p { font-size: 14px; line-height: 1.7; margin-top: 12px; }
+  .footer-col h4 { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.9); margin-bottom: 16px; }
+  .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.55); text-decoration: none; margin-bottom: 10px; transition: color .2s; }
+  .footer-col a:hover { color: white; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+
+  /* TOAST */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--dark); color: white; padding: 14px 20px; border-radius: 10px; font-size: 14px; font-weight: 500; z-index: 300; transform: translateY(80px); opacity: 0; transition: all .3s; max-width: 300px; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast .toast-icon { display: inline-block; margin-right: 8px; }
+
+  /* DASHBOARD */
+  #dashboard { display: none; }
+  .dash-grid { display: grid; grid-template-columns: 260px 1fr; gap: 28px; }
+  .dash-sidebar { background: white; border-radius: 14px; border: 1.5px solid var(--border); padding: 24px; }
+  .dash-nav a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500; color: var(--mid); transition: all .15s; margin-bottom: 4px; }
+  .dash-nav a:hover, .dash-nav a.active { background: var(--warm); color: var(--red); }
+  .dash-main { display: flex; flex-direction: column; gap: 20px; }
+  .dash-card { background: white; border-radius: 14px; border: 1.5px solid var(--border); padding: 24px; }
+  .dash-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 16px; }
+  .booking-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .booking-row:last-child { border-bottom: none; }
+  .booking-row-info { display: flex; flex-direction: column; gap: 3px; }
+  .booking-row-name { font-size: 14px; font-weight: 600; color: var(--dark); }
+  .booking-row-detail { font-size: 12px; color: var(--muted); }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: #E5F7EC; color: #1A7A3C; }
+  .badge-blue { background: #E5F0FF; color: #1A4B8C; }
+  .badge-red { background: #FEE7E5; color: #8C1A0A; }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .booking-card { display: none; }
+    .about-grid, .booking-section-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .dash-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showHome(event)">
+      <div class="logo-flag"></div>
+      <div>
+        <div class="logo-text">My Future Education</div>
+        <div class="logo-sub">Turkish Lessons for Children</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#courses" onclick="scrollTo(event,'courses')">Courses</a>
+      <a href="#pricing" onclick="scrollTo(event,'pricing')">Pricing</a>
+      <a href="#booking" onclick="scrollTo(event,'booking')">Book a Lesson</a>
+      <a href="#about" onclick="scrollTo(event,'about')">About</a>
+    </div>
+    <div class="nav-btns">
+      <button class="btn-outline" onclick="openModal('login')" id="loginBtn">Sign In</button>
+      <button class="btn-solid" onclick="openModal('register')">Register</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME VIEW -->
+<div id="homeView">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">🇹🇷 Leicester, England — Online &amp; In-Person</div>
+      <h1>Help Your Child Discover Their <em>Turkish Heritage</em></h1>
+      <p>Expert Turkish lessons for children of all ages and levels — from playful beginners to GCSE and A-Level preparation. Taught with love by qualified educator Sevgi Körfez.</p>
+      <div class="hero-actions">
+        <button class="btn-hero" onclick="scrollToId('booking')">Book a Free Trial</button>
+        <button class="btn-hero-outline" onclick="scrollToId('courses')">View Courses</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Happy students</div></div>
+        <div class="stat"><div class="stat-num">8+</div><div class="stat-label">Years teaching</div></div>
+        <div class="stat"><div class="stat-num">GCSE</div><div class="stat-label">Exam preparation</div></div>
+      </div>
+    </div>
+    <!-- Quick booking widget -->
+    <div class="booking-card">
+      <h3>Quick Book a Lesson</h3>
+      <div class="form-group">
+        <label>Child's Name</label>
+        <input type="text" placeholder="First name" id="qFirstName">
+      </div>
+      <div class="form-group">
+        <label>Your Email</label>
+        <input type="email" placeholder="parent@email.com" id="qEmail">
+      </div>
+      <div class="form-group">
+        <label>Lesson Level</label>
+        <select id="qLevel">
+          <option value="">Select level...</option>
+          <option>Beginners (Ages 4–7)</option>
+          <option>Primary (Ages 8–11)</option>
+          <option>GCSE Preparation</option>
+          <option>A-Level Preparation</option>
+          <option>Conversational Turkish</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" id="qDate" min="">
+        </div>
+        <div class="form-group">
+          <label>Session Type</label>
+          <select id="qType">
+            <option>Online</option>
+            <option>In-Person</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-book" onclick="quickBook()">Request Free Trial Lesson →</button>
+      <p style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;">No payment needed for trial. We'll confirm by email.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="section-inner">
+    <div class="section-label">Our Programmes</div>
+    <h2 class="section-title">Courses for Every Level</h2>
+    <p class="section-sub">From first letters to full exam preparation — all lessons are tailored to your child's individual pace and goals.</p>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-icon red">🌱</div>
+          <span class="course-level level-beginner">Beginners</span>
+          <div class="course-name">Little Learners</div>
+          <div class="course-desc">For ages 4–7. Playful introduction to Turkish through songs, stories, and games. Building first vocabulary and alphabet recognition.</div>
+        </div>
+        <div class="course-bottom">
+          <div class="course-price">£25 <span>/ session</span></div>
+          <button class="btn-enrol" onclick="scrollToId('booking')">Enrol</button>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-icon blue">📚</div>
+          <span class="course-level level-primary">Primary</span>
+          <div class="course-name">Primary Turkish</div>
+          <div class="course-desc">For ages 8–11. Reading, writing and speaking skills. Covers grammar foundations, vocabulary building and cultural understanding.</div>
+        </div>
+        <div class="course-bottom">
+          <div class="course-price">£28 <span>/ session</span></div>
+          <button class="btn-enrol" onclick="scrollToId('booking')">Enrol</button>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-icon green">🎓</div>
+          <span class="course-level level-gcse">GCSE</span>
+          <div class="course-name">GCSE Turkish</div>
+          <div class="course-desc">Structured exam preparation covering all four skills: reading, writing, listening and speaking. Past paper practice included.</div>
+        </div>
+        <div class="course-bottom">
+          <div class="course-price">£35 <span>/ session</span></div>
+          <button class="btn-enrol" onclick="scrollToId('booking')">Enrol</button>
+        </div>
+      </div>
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-icon gold">🏆</div>
+          <span class="course-level level-alevel">A-Level</span>
+          <div class="course-name">A-Level Turkish</div>
+          <div class="course-desc">Advanced exam preparation. Literature, essay writing, oral practice and complex grammar for top grades in A-Level Turkish.</div>
+        </div>
+        <div class="course-bottom">
+          <div class="course-price">£40 <span>/ session</span></div>
+          <button class="btn-enrol" onclick="scrollToId('booking')">Enrol</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="pricing-bg">
+  <div class="section-inner">
+    <div class="section-label">Transparent Pricing</div>
+    <h2 class="section-title">Choose a Plan That Works for You</h2>
+    <p class="section-sub">All plans include lesson materials, progress reports, and direct access to your teacher. Cancel anytime.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Pay As You Go</div>
+        <div class="price-amount"><sup>£</sup>30</div>
+        <div class="price-period">per lesson (1 hour)</div>
+        <ul class="price-features">
+          <li>Any level or age group</li>
+          <li>Online or in-person</li>
+          <li>Lesson notes provided</li>
+          <li>No commitment required</li>
+        </ul>
+        <button class="btn-price btn-price-outline" onclick="scrollToId('booking')">Book a Lesson</button>
+      </div>
+      <div class="price-card featured">
+        <div class="price-popular">Most Popular</div>
+        <div class="price-tier">Monthly Bundle</div>
+        <div class="price-amount"><sup>£</sup>99</div>
+        <div class="price-period">per month (4 lessons)</div>
+        <ul class="price-features">
+          <li>4 lessons per month</li>
+          <li>Save £21 vs pay-as-you-go</li>
+          <li>Priority scheduling</li>
+          <li>Monthly progress report</li>
+          <li>WhatsApp support</li>
+          <li>Homework &amp; worksheets</li>
+        </ul>
+        <button class="btn-price btn-price-solid" onclick="scrollToId('booking')">Get Started</button>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Intensive</div>
+        <div class="price-amount"><sup>£</sup>179</div>
+        <div class="price-period">per month (8 lessons)</div>
+        <ul class="price-features">
+          <li>8 lessons per month</li>
+          <li>Ideal for exam preparation</li>
+          <li>Mock exams included</li>
+          <li>Detailed progress tracking</li>
+          <li>Parent consultation calls</li>
+          <li>Custom study plan</li>
+        </ul>
+        <button class="btn-price btn-price-outline" onclick="scrollToId('booking')">Enquire Now</button>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--muted);margin-top:28px;">🎉 First trial lesson is completely free — no card required.</p>
+  </div>
+</section>
+
+<!-- BOOKING / CALENDAR -->
+<section id="booking">
+  <div class="section-inner">
+    <div class="section-label">Book a Lesson</div>
+    <h2 class="section-title">Schedule Your Session</h2>
+    <p class="section-sub">Choose a date and time that suits your family. Available Monday to Sunday, 9am–6pm.</p>
+    <div class="booking-section-grid">
+      <div>
+        <div class="calendar-wrap">
+          <div class="cal-header">
+            <div class="cal-month" id="calMonth">June 2025</div>
+            <div class="cal-nav">
+              <button class="cal-btn" onclick="changeMonth(-1)">‹</button>
+              <button class="cal-btn" onclick="changeMonth(1)">›</button>
+            </div>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+          <div class="cal-legend">
+            <div style="display:flex;align-items:center;gap:6px"><div class="cal-legend-dot" style="background:#FEE7E5"></div><span>Available slots</span></div>
+            <div style="display:flex;align-items:center;gap:6px"><div class="cal-legend-dot" style="background:var(--red)"></div><span>Selected</span></div>
+          </div>
+        </div>
+        <div class="time-slots" id="timeSlots" style="display:none;">
+          <h4 id="slotDateLabel">Available times on Saturday 14 June:</h4>
+          <div class="slots-grid" id="slotsGrid"></div>
+        </div>
+      </div>
+      <div class="booking-right">
+        <div class="booking-form-mini">
+          <h4>Complete Your Booking</h4>
+          <div class="account-fields">
+            <div class="form-row">
+              <div class="form-group"><label>First Name</label><input type="text" id="bFirstName" placeholder="Sarah"></div>
+              <div class="form-group"><label>Last Name</label><input type="text" id="bLastName" placeholder="Ahmed"></div>
+            </div>
+            <div class="form-group"><label>Email Address</label><input type="email" id="bEmail" placeholder="parent@email.com"></div>
+            <div class="form-group"><label>Child's Name</label><input type="text" id="bChild" placeholder="Child's first name"></div>
+            <div class="form-group">
+              <label>Lesson Level</label>
+              <select id="bLevel">
+                <option value="">Select level...</option>
+                <option>Beginners (Ages 4–7)</option>
+                <option>Primary (Ages 8–11)</option>
+                <option>GCSE Preparation</option>
+                <option>A-Level Preparation</option>
+                <option>Conversational Turkish</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Session Type</label>
+              <select id="bSessionType">
+                <option>Online via Zoom</option>
+                <option>In-Person (Leicester)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Additional Notes</label>
+              <input type="text" id="bNotes" placeholder="Any special requirements...">
+            </div>
+            <div id="bookingSummary" style="background:var(--warm);border-radius:8px;padding:14px;font-size:13px;color:var(--mid);display:none;"></div>
+            <button class="btn-book" onclick="submitBooking()">Confirm Booking →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="background:var(--warm);">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image-area">
+        <div class="about-img-placeholder">🌙</div>
+        <div class="about-badge-wrap">
+          <div class="about-badge-num">150+</div>
+          <div class="about-badge-label">Students taught</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">About My Future Education</div>
+        <h2>Teaching Turkish with <em style="color:var(--red);font-style:normal;">Heart</em></h2>
+        <p>My Future Education was founded by Sevgi Körfez, a passionate educator and mother based in Leicester who believes that language is the gateway to a child's cultural identity.</p>
+        <p>For Turkish families living in the UK, keeping the mother tongue alive is both a challenge and a gift. Sevgi's mission is to help children maintain their connection to Turkish language, culture and heritage — with joy, structure and love.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-dot">✓</div><div class="feature-text">Qualified, experienced Turkish language teacher</div></div>
+          <div class="feature-item"><div class="feature-dot">✓</div><div class="feature-text">All ages from 4 years to A-Level and beyond</div></div>
+          <div class="feature-item"><div class="feature-dot">✓</div><div class="feature-text">Flexible online and in-person lessons</div></div>
+          <div class="feature-item"><div class="feature-dot">✓</div><div class="feature-text">GCSE and A-Level exam specialist</div></div>
+          <div class="feature-item"><div class="feature-dot">✓</div><div class="feature-text">Based in Leicester — serving families across the UK</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="section-inner">
+    <div class="section-label">Parent Reviews</div>
+    <h2 class="section-title">What Families Say</h2>
+    <p class="section-sub">Real feedback from parents whose children learn with My Future Education.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Sevgi is an amazing teacher. My daughter went from barely remembering basic words to reading full sentences in Turkish within a few months. She actually looks forward to lessons!"</div>
+        <div class="testi-author"><div class="testi-avatar">FA</div><div><div class="testi-name">Fatma A.</div><div class="testi-child">Mother of Elif, age 9 — Primary level</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"My son sat his GCSE Turkish after just one year with Sevgi and got a grade 8. Her structured approach and patience made all the difference. Highly recommended!"</div>
+        <div class="testi-author"><div class="testi-avatar">MK</div><div><div class="testi-name">Murat K.</div><div class="testi-child">Father of Kaan, age 16 — GCSE prep</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"As a mixed Turkish-British family we were worried our children would lose the language. Sevgi has given them confidence and pride in speaking Turkish. Wonderful experience."</div>
+        <div class="testi-author"><div class="testi-avatar">SB</div><div><div class="testi-name">Sarah B.</div><div class="testi-child">Mother of two — Beginners &amp; Primary</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">My Future Education</div>
+        <p>Quality Turkish lessons for children of all ages and levels. Based in Leicester, teaching students across the UK online and in person.</p>
+        <p style="margin-top:12px;">📍 Leicester, England &nbsp;|&nbsp; 📧 info@myfuturedu.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <a href="#">Beginners (4–7)</a>
+        <a href="#">Primary (8–11)</a>
+        <a href="#">GCSE Turkish</a>
+        <a href="#">A-Level Turkish</a>
+        <a href="#">Conversational</a>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="#" onclick="openModal('login');return false;">Sign In</a>
+        <a href="#" onclick="openModal('register');return false;">Register</a>
+        <a href="#" onclick="showDashboard();return false;">My Bookings</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <a href="https://www.myfuturedu.com" target="_blank">Website</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 My Future Education. All rights reserved.</span>
+      <span>Leicester, England 🇬🇧 · Turkish lessons 🇹🇷</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /homeView -->
+
+<!-- DASHBOARD VIEW -->
+<div id="dashboard" style="padding:40px 5%;max-width:1200px;margin:0 auto;">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
+    <div>
+      <div class="section-label" style="margin-bottom:4px;">Student Portal</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:28px;" id="dashGreeting">Welcome back!</h2>
+    </div>
+    <button class="btn-outline" onclick="showHome(event)">← Back to Site</button>
+  </div>
+  <div class="dash-grid">
+    <div class="dash-sidebar">
+      <div style="display:flex;flex-direction:column;align-items:center;padding:16px 0 20px;border-bottom:1px solid var(--border);margin-bottom:16px;">
+        <div style="width:60px;height:60px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:white;margin-bottom:10px;" id="dashAvatar">SA</div>
+        <div style="font-size:15px;font-weight:600;color:var(--dark);" id="dashName">Sarah Ahmed</div>
+        <div style="font-size:12px;color:var(--muted);" id="dashEmail">sarah@email.com</div>
+      </div>
+      <div class="dash-nav">
+        <a href="#" class="active" onclick="return false;">📅 &nbsp;My Bookings</a>
+        <a href="#" onclick="scrollToId('booking');return false;">➕ &nbsp;Book New Lesson</a>
+        <a href="#" onclick="return false;">👤 &nbsp;My Profile</a>
+        <a href="#" onclick="return false;">📊 &nbsp;Progress</a>
+        <a href="#" onclick="logout();return false;">🚪 &nbsp;Sign Out</a>
+      </div>
+    </div>
+    <div class="dash-main">
+      <div class="dash-card">
+        <h3>Upcoming Lessons</h3>
+        <div id="dashBookings">
+          <div class="booking-row">
+            <div class="booking-row-info">
+              <div class="booking-row-name" id="dashChildName">Yusuf Ahmed</div>
+              <div class="booking-row-detail" id="dashLevelDisplay">GCSE Preparation · Online via Zoom</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:13px;font-weight:600;color:var(--dark);" id="dashBookDate">Tue 10 Jun, 4:00 PM</div>
+              <span class="badge badge-green">Confirmed</span>
+            </div>
+          </div>
+          <div class="booking-row">
+            <div class="booking-row-info">
+              <div class="booking-row-name" id="dashChildName2">Yusuf Ahmed</div>
+              <div class="booking-row-detail">GCSE Preparation · Online via Zoom</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:13px;font-weight:600;color:var(--dark);">Tue 17 Jun, 4:00 PM</div>
+              <span class="badge badge-blue">Scheduled</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-card">
+        <h3>Your Child's Progress</h3>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <div style="background:var(--warm);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--dark);" id="dashSessions">0</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;">Sessions completed</div>
+          </div>
+          <div style="background:var(--warm);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--dark);">A</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;">Current grade</div>
+          </div>
+          <div style="background:var(--warm);border-radius:10px;padding:16px;text-align:center;">
+            <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--red);">🇹🇷</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;">Turkish journey</div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-card">
+        <h3>Account Details</h3>
+        <div class="account-fields">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" id="accFirst" value="Sarah"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" id="accLast" value="Ahmed"></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" id="accEmail" value="sarah@email.com"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" id="accPhone" placeholder="+44..."></div>
+          <button class="btn-solid" style="width:fit-content;padding:10px 24px;" onclick="showToast('✅ Profile updated successfully!')">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2 id="modalTitle">Welcome Back</h2>
+      <p id="modalSubtitle">Sign in to your My Future Education account</p>
+      <div class="modal-tabs">
+        <div class="modal-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</div>
+        <div class="modal-tab" id="tabRegister" onclick="switchTab('register')">Register</div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <div class="account-fields">
+          <div class="form-group"><label>Email Address</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
+          <button class="btn-book" onclick="doLogin()">Sign In →</button>
+          <p style="font-size:12px;text-align:center;color:var(--muted);">Forgot password? <a href="#" style="color:var(--red);">Reset it here</a></p>
+        </div>
+      </div>
+      <!-- REGISTER -->
+      <div id="registerForm" style="display:none;">
+        <div class="account-fields">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" id="regFirst" placeholder="Sarah"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" id="regLast" placeholder="Ahmed"></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel" id="regPhone" placeholder="+44 7700 000000"></div>
+          <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Create a password"></div>
+          <div class="form-group"><label>Child's Name</label><input type="text" id="regChild" placeholder="Your child's name"></div>
+          <div class="form-group">
+            <label>Lesson Level Needed</label>
+            <select id="regLevel">
+              <option value="">Select level...</option>
+              <option>Beginners (Ages 4–7)</option>
+              <option>Primary (Ages 8–11)</option>
+              <option>GCSE Preparation</option>
+              <option>A-Level Preparation</option>
+              <option>Conversational Turkish</option>
+            </select>
+          </div>
+          <button class="btn-book" onclick="doRegister()">Create Account →</button>
+          <p style="font-size:12px;text-align:center;color:var(--muted);">By registering you agree to our terms &amp; privacy policy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="toast-icon">🎉</span><span id="toastMsg">Booking confirmed!</span></div>
+
+<script>
+// --- STATE ---
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let selectedDate = null;
+let selectedTime = null;
+let loggedIn = false;
+let currentUser = {};
+
+const availableSlots = {
+  Mon: ['10:00 AM','11:00 AM','4:00 PM','5:00 PM'],
+  Tue: ['10:00 AM','4:00 PM','5:00 PM','6:00 PM'],
+  Wed: ['11:00 AM','4:00 PM','5:00 PM'],
+  Thu: ['10:00 AM','4:00 PM','5:00 PM','6:00 PM'],
+  Fri: ['10:00 AM','11:00 AM','4:00 PM'],
+  Sat: ['9:00 AM','10:00 AM','11:00 AM','12:00 PM','2:00 PM','3:00 PM'],
+  Sun: ['10:00 AM','11:00 AM','12:00 PM']
+};
+const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+// Set min date
+document.getElementById('qDate').min = new Date().toISOString().split('T')[0];
+
+function renderCalendar() {
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('calMonth').textContent = months[currentMonth] + ' ' + currentYear;
+  const grid = document.getElementById('calGrid');
+  grid.innerHTML = '';
+  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-day-name';
+    el.textContent = d;
+    grid.appendChild(el);
+  });
+  const first = new Date(currentYear, currentMonth, 1).getDay();
+  const offset = (first === 0) ? 6 : first - 1;
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const today = new Date(); today.setHours(0,0,0,0);
+  for (let i = 0; i < offset; i++) {
+    const el = document.createElement('div'); el.className = 'cal-day empty'; grid.appendChild(el);
+  }
+  for (let d = 1; d <= daysInMonth; d++) {
+    const date = new Date(currentYear, currentMonth, d);
+    const dayName = days[date.getDay()];
+    const el = document.createElement('div');
+    el.textContent = d;
+    let cls = 'cal-day';
+    if (date < today) cls += ' past';
+    else {
+      cls += ' has-slot';
+      el.onclick = () => selectDay(d);
+    }
+    if (date.toDateString() === today.toDateString()) cls += ' today';
+    if (selectedDate && date.toDateString() === selectedDate.toDateString()) cls += ' selected';
+    el.className = cls;
+    grid.appendChild(el);
+  }
+}
+
+function selectDay(d) {
+  selectedDate = new Date(currentYear, currentMonth, d);
+  selectedTime = null;
+  renderCalendar();
+  const dayName = days[selectedDate.getDay()];
+  const slots = availableSlots[dayName] || ['10:00 AM','4:00 PM'];
+  const label = selectedDate.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  document.getElementById('slotDateLabel').textContent = 'Available times on ' + label + ':';
+  const sg = document.getElementById('slotsGrid');
+  sg.innerHTML = '';
+  slots.forEach((s,i) => {
+    const el = document.createElement('div');
+    el.className = 'slot' + (i===2?' full':'');
+    el.textContent = i===2 ? s + ' (Full)' : s;
+    if (i!==2) el.onclick = () => selectSlot(s, el);
+    sg.appendChild(el);
+  });
+  document.getElementById('timeSlots').style.display = 'block';
+  updateBookingSummary();
+}
+
+function selectSlot(time, el) {
+  selectedTime = time;
+  document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  updateBookingSummary();
+}
+
+function updateBookingSummary() {
+  const el = document.getElementById('bookingSummary');
+  if (selectedDate && selectedTime) {
+    const dateStr = selectedDate.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
+    el.style.display = 'block';
+    el.innerHTML = '📅 <strong>' + dateStr + ' at ' + selectedTime + '</strong><br>Select a level below and fill in your details to confirm.';
+  }
+}
+
+function changeMonth(dir) {
+  currentMonth += dir;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  renderCalendar();
+}
+
+function quickBook() {
+  const name = document.getElementById('qFirstName').value;
+  const email = document.getElementById('qEmail').value;
+  const level = document.getElementById('qLevel').value;
+  if (!name || !email || !level) { showToast('⚠️ Please fill in all fields'); return; }
+  showToast('🎉 Free trial requested! We\'ll email you within 24 hours.');
+  document.getElementById('qFirstName').value='';
+  document.getElementById('qEmail').value='';
+  document.getElementById('qLevel').value='';
+}
+
+function submitBooking() {
+  const first = document.getElementById('bFirstName').value;
+  const last = document.getElementById('bLastName').value;
+  const email = document.getElementById('bEmail').value;
+  const child = document.getElementById('bChild').value;
+  const level = document.getElementById('bLevel').value;
+  if (!first||!last||!email||!child||!level) { showToast('⚠️ Please complete all required fields'); return; }
+  if (!selectedDate||!selectedTime) { showToast('⚠️ Please select a date and time'); return; }
+  const dateStr = selectedDate.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long'});
+  showToast('✅ Booking confirmed for ' + dateStr + ' at ' + selectedTime + '!');
+  if (loggedIn) {
+    document.getElementById('dashChildName').textContent = child;
+    document.getElementById('dashChildName2').textContent = child;
+    document.getElementById('dashLevelDisplay').textContent = level + ' · ' + document.getElementById('bSessionType').value;
+    document.getElementById('dashBookDate').textContent = dateStr + ', ' + selectedTime;
+    document.getElementById('dashSessions').textContent = '1';
+  }
+}
+
+function openModal(tab) {
+  document.getElementById('modalOverlay').classList.add('open');
+  switchTab(tab);
+}
+
+function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); }
+function closeModalOutside(e) { if(e.target===document.getElementById('modalOverlay')) closeModal(); }
+
+function switchTab(tab) {
+  const isLogin = tab==='login';
+  document.getElementById('tabLogin').classList.toggle('active', isLogin);
+  document.getElementById('tabRegister').classList.toggle('active', !isLogin);
+  document.getElementById('loginForm').style.display = isLogin?'block':'none';
+  document.getElementById('registerForm').style.display = isLogin?'none':'block';
+  document.getElementById('modalTitle').textContent = isLogin ? 'Welcome Back' : 'Create Account';
+  document.getElementById('modalSubtitle').textContent = isLogin ? 'Sign in to your account' : 'Join My Future Education today';
+}
+
+function doLogin() {
+  const email = document.getElementById('loginEmail').value;
+  const pass = document.getElementById('loginPass').value;
+  if (!email||!pass) { showToast('⚠️ Please enter your email and password'); return; }
+  loggedIn = true;
+  currentUser = { first: 'Parent', last: '', email: email };
+  closeModal();
+  showToast('👋 Welcome back! You are now signed in.');
+  document.getElementById('loginBtn').textContent = 'My Account';
+  document.getElementById('loginBtn').onclick = showDashboard;
+}
+
+function doRegister() {
+  const first = document.getElementById('regFirst').value;
+  const last = document.getElementById('regLast').value;
+  const email = document.getElementById('regEmail').value;
+  const pass = document.getElementById('regPass').value;
+  const child = document.getElementById('regChild').value;
+  const level = document.getElementById('regLevel').value;
+  if (!first||!last||!email||!pass||!child||!level) { showToast('⚠️ Please fill in all fields'); return; }
+  loggedIn = true;
+  currentUser = {first,last,email,child,level};
+  closeModal();
+  showToast('🎉 Account created! Welcome to My Future Education, ' + first + '!');
+  document.getElementById('loginBtn').textContent = 'My Account';
+  document.getElementById('loginBtn').onclick = showDashboard;
+  populateDashboard();
+}
+
+function populateDashboard() {
+  if(!currentUser.first) return;
+  document.getElementById('dashGreeting').textContent = 'Welcome, ' + currentUser.first + '!';
+  document.getElementById('dashAvatar').textContent = (currentUser.first[0]||'')+(currentUser.last?currentUser.last[0]:'');
+  document.getElementById('dashName').textContent = currentUser.first + ' ' + (currentUser.last||'');
+  document.getElementById('dashEmail').textContent = currentUser.email||'';
+  document.getElementById('accFirst').value = currentUser.first||'';
+  document.getElementById('accLast').value = currentUser.last||'';
+  document.getElementById('accEmail').value = currentUser.email||'';
+  if (currentUser.child) {
+    document.getElementById('dashChildName').textContent = currentUser.child;
+    document.getElementById('dashChildName2').textContent = currentUser.child;
+  }
+  if (currentUser.level) document.getElementById('dashLevelDisplay').textContent = currentUser.level + ' · Online via Zoom';
+}
+
+function showDashboard() {
+  if(!loggedIn) { openModal('login'); return; }
+  populateDashboard();
+  document.getElementById('homeView').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  window.scrollTo(0,0);
+}
+
+function showHome(e) {
+  if(e) e.preventDefault();
+  document.getElementById('homeView').style.display='block';
+  document.getElementById('dashboard').style.display='none';
+  window.scrollTo(0,0);
+}
+
+function logout() {
+  loggedIn = false; currentUser = {};
+  document.getElementById('loginBtn').textContent = 'Sign In';
+  document.getElementById('loginBtn').onclick = () => openModal('login');
+  showHome(null);
+  showToast('👋 Signed out successfully.');
+}
+
+function scrollToId(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+function scrollTo(e, id) {
+  e.preventDefault();
+  scrollToId(id);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+renderCalendar();
+</script>
+</body>
+</html>
