@@ -1,0 +1,115 @@
+/* Visible live motion layer for the editorial homepage. Kept separate so legal pages remain untouched. */
+:root{
+  --ambient-a:rgba(37,99,235,.12);
+  --ambient-b:rgba(14,165,233,.055);
+  --ambient-c:rgba(99,102,241,.045);
+}
+
+body[data-tone="paper"]{--page-bg:#fbfbfa;--ambient-a:rgba(37,99,235,.105);--ambient-b:rgba(14,165,233,.045);--ambient-c:rgba(99,102,241,.035)}
+body[data-tone="white"]{--page-bg:#ffffff;--ambient-a:rgba(37,99,235,.085);--ambient-b:rgba(14,165,233,.04);--ambient-c:rgba(99,102,241,.03)}
+body[data-tone="ice"]{--page-bg:#eef4ff;--ambient-a:rgba(37,99,235,.17);--ambient-b:rgba(56,189,248,.09);--ambient-c:rgba(99,102,241,.065)}
+body[data-tone="mist"]{--page-bg:#f4f6f9;--ambient-a:rgba(37,99,235,.105);--ambient-b:rgba(125,211,252,.06);--ambient-c:rgba(99,102,241,.045)}
+
+/* The earlier ambient layer sat behind the document background. Keep it in the page stack instead. */
+.ambient-field{
+  z-index:0;
+  overflow:hidden;
+  opacity:1;
+  background:
+    radial-gradient(circle at var(--mx) var(--my),var(--ambient-a),transparent 23%),
+    radial-gradient(circle at 16% 82%,var(--ambient-b),transparent 26%),
+    radial-gradient(circle at 88% 64%,var(--ambient-c),transparent 25%);
+  transition:background .9s ease,opacity .6s ease;
+}
+.ambient-field::before,.ambient-field::after{
+  content:'';
+  position:absolute;
+  width:min(58vw,760px);
+  aspect-ratio:1;
+  border-radius:50%;
+  filter:blur(58px);
+  opacity:.58;
+  will-change:transform;
+  pointer-events:none;
+}
+.ambient-field::before{
+  left:-18vw;
+  top:12vh;
+  background:radial-gradient(circle,rgba(37,99,235,.12),rgba(37,99,235,0) 68%);
+  animation:ambient-drift-a 18s ease-in-out infinite alternate;
+}
+.ambient-field::after{
+  right:-20vw;
+  bottom:-10vh;
+  background:radial-gradient(circle,rgba(56,189,248,.09),rgba(99,102,241,0) 70%);
+  animation:ambient-drift-b 22s ease-in-out infinite alternate;
+}
+body>header,body>main,body>footer{position:relative;z-index:1}
+.scroll-progress{z-index:220;height:3px;box-shadow:0 0 16px rgba(37,99,235,.18)}
+
+/* Make the cursor treatment deliberately visible without replacing the native cursor. */
+@media(pointer:fine) and (prefers-reduced-motion:no-preference){
+  .cursor-halo{
+    width:46px;
+    height:46px;
+    border:1.25px solid rgba(29,78,216,.68);
+    background:rgba(37,99,235,.025);
+    box-shadow:0 0 0 7px rgba(37,99,235,.035),0 10px 34px rgba(29,78,216,.12);
+    opacity:.92;
+    transition:width .24s var(--ease-out),height .24s var(--ease-out),border-color .24s ease,background .24s ease,box-shadow .24s ease,opacity .24s ease;
+  }
+  .cursor-dot{
+    width:6px;
+    height:6px;
+    margin-left:-.5px;
+    margin-top:-.5px;
+    background:#1d4ed8;
+    box-shadow:0 0 0 4px rgba(37,99,235,.10);
+    opacity:1;
+  }
+  .cursor-halo.is-active{
+    width:68px;
+    height:68px;
+    border-color:rgba(29,78,216,.92);
+    background:rgba(37,99,235,.065);
+    box-shadow:0 0 0 10px rgba(37,99,235,.045),0 16px 44px rgba(29,78,216,.17);
+  }
+  a:hover,.button:hover,.course-card:hover{cursor:pointer}
+}
+
+/* A little more life in the hero without returning to decorative 'AI orbs'. */
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:auto 0 0 0;
+  height:42%;
+  pointer-events:none;
+  background:linear-gradient(180deg,transparent,rgba(37,99,235,.025));
+  animation:hero-breathe 9s ease-in-out infinite alternate;
+}
+.hero>.container{position:relative;z-index:1}
+
+@keyframes ambient-drift-a{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(13vw,7vh,0) scale(1.08)}
+  100%{transform:translate3d(7vw,20vh,0) scale(.96)}
+}
+@keyframes ambient-drift-b{
+  0%{transform:translate3d(0,0,0) scale(.95)}
+  50%{transform:translate3d(-11vw,-8vh,0) scale(1.08)}
+  100%{transform:translate3d(-5vw,-20vh,0) scale(1)}
+}
+@keyframes hero-breathe{
+  from{opacity:.25;transform:translateY(2%)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:780px){
+  .ambient-field::before,.ambient-field::after{width:95vw;opacity:.42}
+  .scroll-progress{height:2px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .ambient-field::before,.ambient-field::after,.hero::after{animation:none!important}
+  .ambient-field{background:radial-gradient(circle at 75% 18%,rgba(37,99,235,.08),transparent 24%)}
+}
