@@ -100,6 +100,7 @@ body>header,body>main,body>footer{position:relative;z-index:1}
 .price-badge,.price-badge.popular{font-size:9px}
 .price-card>p{font-size:14px;line-height:1.7}
 .price-card li{font-size:13px;line-height:1.5;padding:12px 0}
+.price-card li::before{content:none!important;display:none!important}
 .price small{font-size:12px}
 .trial-note{font-size:12px;line-height:1.6}
 
