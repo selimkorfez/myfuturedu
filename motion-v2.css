@@ -1,24 +1,24 @@
 /* Visible live motion layer for the editorial homepage. Kept separate so legal pages remain untouched. */
 :root{
-  --ambient-a:rgba(37,99,235,.075);
-  --ambient-b:rgba(14,165,233,.035);
+  --ambient-a:rgba(37,99,235,.12);
+  --ambient-b:rgba(14,165,233,.04);
   --ambient-c:rgba(99,102,241,.03);
 }
 
-body[data-tone="paper"]{--page-bg:#fbfbfa;--ambient-a:rgba(37,99,235,.07);--ambient-b:rgba(14,165,233,.03);--ambient-c:rgba(99,102,241,.022)}
-body[data-tone="white"]{--page-bg:#ffffff;--ambient-a:rgba(37,99,235,.055);--ambient-b:rgba(14,165,233,.025);--ambient-c:rgba(99,102,241,.02)}
-body[data-tone="ice"]{--page-bg:#f3f7ff;--ambient-a:rgba(37,99,235,.095);--ambient-b:rgba(56,189,248,.05);--ambient-c:rgba(99,102,241,.04)}
-body[data-tone="mist"]{--page-bg:#f5f6f8;--ambient-a:rgba(37,99,235,.065);--ambient-b:rgba(125,211,252,.035);--ambient-c:rgba(99,102,241,.025)}
+body[data-tone="paper"]{--page-bg:#fbfbfa;--ambient-a:rgba(37,99,235,.12);--ambient-b:rgba(14,165,233,.035);--ambient-c:rgba(99,102,241,.024)}
+body[data-tone="white"]{--page-bg:#ffffff;--ambient-a:rgba(37,99,235,.10);--ambient-b:rgba(14,165,233,.03);--ambient-c:rgba(99,102,241,.022)}
+body[data-tone="ice"]{--page-bg:#f3f7ff;--ambient-a:rgba(37,99,235,.14);--ambient-b:rgba(56,189,248,.055);--ambient-c:rgba(99,102,241,.04)}
+body[data-tone="mist"]{--page-bg:#f5f6f8;--ambient-a:rgba(37,99,235,.11);--ambient-b:rgba(125,211,252,.04);--ambient-c:rgba(99,102,241,.028)}
 
 .ambient-field{
   z-index:0;
   overflow:hidden;
-  opacity:.68;
+  opacity:.9;
   background:
-    radial-gradient(circle at var(--mx) var(--my),var(--ambient-a),transparent 22%),
-    radial-gradient(circle at 16% 82%,var(--ambient-b),transparent 26%),
-    radial-gradient(circle at 88% 64%,var(--ambient-c),transparent 25%);
-  transition:background .9s ease,opacity .6s ease;
+    radial-gradient(ellipse 34% 30% at var(--mx) var(--my),var(--ambient-a) 0%,rgba(37,99,235,.045) 38%,transparent 76%),
+    radial-gradient(circle at 16% 82%,var(--ambient-b),transparent 28%),
+    radial-gradient(circle at 88% 64%,var(--ambient-c),transparent 27%);
+  transition:background-color .9s ease,opacity .6s ease;
 }
 .ambient-field::before,.ambient-field::after{
   content:'';
@@ -26,21 +26,21 @@ body[data-tone="mist"]{--page-bg:#f5f6f8;--ambient-a:rgba(37,99,235,.065);--ambi
   width:min(52vw,680px);
   aspect-ratio:1;
   border-radius:50%;
-  filter:blur(68px);
-  opacity:.4;
+  filter:blur(72px);
+  opacity:.34;
   will-change:transform;
   pointer-events:none;
 }
 .ambient-field::before{
   left:-18vw;
   top:12vh;
-  background:radial-gradient(circle,rgba(37,99,235,.09),rgba(37,99,235,0) 68%);
+  background:radial-gradient(circle,rgba(37,99,235,.075),rgba(37,99,235,0) 70%);
   animation:ambient-drift-a 19s ease-in-out infinite alternate;
 }
 .ambient-field::after{
   right:-20vw;
   bottom:-10vh;
-  background:radial-gradient(circle,rgba(56,189,248,.06),rgba(99,102,241,0) 70%);
+  background:radial-gradient(circle,rgba(56,189,248,.05),rgba(99,102,241,0) 72%);
   animation:ambient-drift-b 23s ease-in-out infinite alternate;
 }
 body>header,body>main,body>footer{position:relative;z-index:1}
@@ -64,10 +64,10 @@ body>header,body>main,body>footer{position:relative;z-index:1}
 .hero-lead{max-width:670px;font-size:18px;line-height:1.72;color:#566173}
 .learning-card{min-width:0;align-self:end;padding-left:clamp(26px,2.2vw,38px)}
 
-/* Remove the visible custom cursor; keep the pointer-responsive ambient background. */
-.cursor-halo,.cursor-dot{display:none!important}
+/* No custom cursor overlay. The normal cursor remains; only the background responds to it. */
+.cursor-halo,.cursor-dot{display:none!important;visibility:hidden!important;opacity:0!important}
 
-/* Readability pass: supporting copy should feel like a real website, not a tiny desktop mock-up. */
+/* Readability pass. */
 .eyebrow,.section-kicker,.mini-label{font-size:11px;letter-spacing:.14em}
 .learning-card h2{font-size:31px;line-height:1.14}
 .learning-intro{font-size:14px;line-height:1.7;max-width:380px}
@@ -113,7 +113,6 @@ body>header,body>main,body>footer{position:relative;z-index:1}
 .field input,.field select,.field textarea{font-size:14px}
 .form-consent{font-size:12px;line-height:1.65}
 
-/* Keep the background alive without returning to decorative AI-style orbs. */
 .hero::after{
   content:'';
   position:absolute;
@@ -153,7 +152,7 @@ body>header,body>main,body>footer{position:relative;z-index:1}
 }
 
 @media(max-width:780px){
-  .ambient-field::before,.ambient-field::after{width:95vw;opacity:.32}
+  .ambient-field::before,.ambient-field::after{width:95vw;opacity:.28}
   .scroll-progress{height:2px}
   .hero h1{font-size:clamp(44px,13vw,64px);line-height:.97}
   .hero-lead{font-size:16px}
@@ -164,5 +163,5 @@ body>header,body>main,body>footer{position:relative;z-index:1}
 
 @media(prefers-reduced-motion:reduce){
   .ambient-field::before,.ambient-field::after,.hero::after{animation:none!important}
-  .ambient-field{background:radial-gradient(circle at 75% 18%,rgba(37,99,235,.055),transparent 24%)}
+  .ambient-field{background:radial-gradient(ellipse 34% 30% at 75% 18%,rgba(37,99,235,.07),transparent 76%)}
 }
