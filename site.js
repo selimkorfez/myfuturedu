@@ -1,16 +1,5 @@
 document.documentElement.classList.add('js');
 
-const favicon = document.createElement('link');
-favicon.rel = 'icon';
-favicon.type = 'image/x-icon';
-favicon.href = '/favicon.ico?v=20260831-3';
-document.head.appendChild(favicon);
-
-const basicPrice = document.querySelector('.pricing-grid .price-card:first-child .price');
-if (basicPrice) {
-  basicPrice.innerHTML = '£20 <small>/ lesson</small>';
-}
-
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const finePointer = window.matchMedia('(pointer: fine)');
 
