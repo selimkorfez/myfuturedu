@@ -57,8 +57,8 @@
     let currentX = targetX;
     let currentY = targetY;
     const tick = () => {
-      currentX += (targetX - currentX) * .075;
-      currentY += (targetY - currentY) * .075;
+      currentX += (targetX - currentX) * .085;
+      currentY += (targetY - currentY) * .085;
       document.documentElement.style.setProperty('--mx', `${(currentX / window.innerWidth) * 100}%`);
       document.documentElement.style.setProperty('--my', `${(currentY / window.innerHeight) * 100}%`);
       requestAnimationFrame(tick);
@@ -68,33 +68,6 @@
       targetY = event.clientY;
     }, { passive: true });
     requestAnimationFrame(tick);
-  }
-
-  if (finePointer.matches && !reduced.matches) {
-    const halo = document.createElement('div');
-    const dot = document.createElement('div');
-    halo.className = 'cursor-halo';
-    dot.className = 'cursor-dot';
-    body.append(halo, dot);
-
-    let mouseX = -100, mouseY = -100;
-    let haloX = mouseX, haloY = mouseY;
-    const renderCursor = () => {
-      haloX += (mouseX - haloX) * .16;
-      haloY += (mouseY - haloY) * .16;
-      halo.style.transform = `translate3d(${haloX - halo.offsetWidth / 2}px,${haloY - halo.offsetHeight / 2}px,0)`;
-      dot.style.transform = `translate3d(${mouseX - 2.5}px,${mouseY - 2.5}px,0)`;
-      requestAnimationFrame(renderCursor);
-    };
-    window.addEventListener('pointermove', (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-    }, { passive: true });
-    document.querySelectorAll('a,button,input,select,textarea').forEach(el => {
-      el.addEventListener('pointerenter', () => halo.classList.add('is-active'));
-      el.addEventListener('pointerleave', () => halo.classList.remove('is-active'));
-    });
-    requestAnimationFrame(renderCursor);
   }
 
   const hero = document.querySelector('.hero');
