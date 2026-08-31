@@ -10,7 +10,6 @@ body[data-tone="white"]{--page-bg:#ffffff;--ambient-a:rgba(37,99,235,.055);--amb
 body[data-tone="ice"]{--page-bg:#f3f7ff;--ambient-a:rgba(37,99,235,.095);--ambient-b:rgba(56,189,248,.05);--ambient-c:rgba(99,102,241,.04)}
 body[data-tone="mist"]{--page-bg:#f5f6f8;--ambient-a:rgba(37,99,235,.065);--ambient-b:rgba(125,211,252,.035);--ambient-c:rgba(99,102,241,.025)}
 
-/* Keep the ambient layer in the visible page stack. */
 .ambient-field{
   z-index:0;
   overflow:hidden;
@@ -47,7 +46,7 @@ body[data-tone="mist"]{--page-bg:#f5f6f8;--ambient-a:rgba(37,99,235,.065);--ambi
 body>header,body>main,body>footer{position:relative;z-index:1}
 .scroll-progress{z-index:220;height:3px;box-shadow:0 0 16px rgba(37,99,235,.18)}
 
-/* Hero proportion correction: keep the statement dramatic without letting it invade the pathway column. */
+/* Hero proportion correction. */
 .hero-grid{
   grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr);
   gap:clamp(58px,6vw,96px);
@@ -60,48 +59,61 @@ body>header,body>main,body>footer{position:relative;z-index:1}
   max-width:790px;
   text-wrap:balance;
 }
-.hero h1 span{
-  white-space:normal;
-}
+.hero h1 span{white-space:normal}
 .hero h1 span:after{display:none}
-.hero-lead{max-width:650px}
-.learning-card{
-  min-width:0;
-  align-self:end;
-  padding-left:clamp(26px,2.2vw,38px);
-}
+.hero-lead{max-width:670px;font-size:18px;line-height:1.72;color:#566173}
+.learning-card{min-width:0;align-self:end;padding-left:clamp(26px,2.2vw,38px)}
 
-/* Make the cursor treatment clearly visible without replacing the native cursor. */
-@media(pointer:fine) and (prefers-reduced-motion:no-preference){
-  .cursor-halo{
-    width:46px;
-    height:46px;
-    border:1.25px solid rgba(29,78,216,.68);
-    background:rgba(37,99,235,.025);
-    box-shadow:0 0 0 7px rgba(37,99,235,.035),0 10px 34px rgba(29,78,216,.12);
-    opacity:.92;
-    transition:width .24s var(--ease-out),height .24s var(--ease-out),border-color .24s ease,background .24s ease,box-shadow .24s ease,opacity .24s ease;
-  }
-  .cursor-dot{
-    width:6px;
-    height:6px;
-    margin-left:-.5px;
-    margin-top:-.5px;
-    background:#1d4ed8;
-    box-shadow:0 0 0 4px rgba(37,99,235,.10);
-    opacity:1;
-  }
-  .cursor-halo.is-active{
-    width:68px;
-    height:68px;
-    border-color:rgba(29,78,216,.92);
-    background:rgba(37,99,235,.065);
-    box-shadow:0 0 0 10px rgba(37,99,235,.045),0 16px 44px rgba(29,78,216,.17);
-  }
-  a:hover,.button:hover,.course-card:hover{cursor:pointer}
-}
+/* Remove the visible custom cursor; keep the pointer-responsive ambient background. */
+.cursor-halo,.cursor-dot{display:none!important}
 
-/* A little more life in the hero without returning to decorative AI-style orbs. */
+/* Readability pass: supporting copy should feel like a real website, not a tiny desktop mock-up. */
+.eyebrow,.section-kicker,.mini-label{font-size:11px;letter-spacing:.14em}
+.learning-card h2{font-size:31px;line-height:1.14}
+.learning-intro{font-size:14px;line-height:1.7;max-width:380px}
+.path-step{grid-template-columns:36px 1fr;gap:14px;padding:18px 0}
+.step-number{font-size:10px}
+.path-step strong{font-size:14px}
+.path-step div span{font-size:12.5px;line-height:1.6;margin-top:5px}
+.learning-link{font-size:12.5px;padding-top:19px}
+
+.hero-facts strong{font-size:14px}
+.hero-facts span{font-size:12px;line-height:1.5}
+
+.trust-grid strong{font-size:15px}
+.trust-grid p{font-size:13px;line-height:1.65}
+.trust-index{font-size:10px}
+
+.section-title-wrap p,.about-copy>p{font-size:16px;line-height:1.8}
+.course-card h3{font-size:28px}
+.course-card>p,.course-card-dark>p,.course-card-blue>p{font-size:14px;line-height:1.75}
+.course-number{font-size:11px}
+.course-level{font-size:10px}
+.course-footer span,.course-card-dark .course-footer span,.course-card-blue .course-footer span{font-size:11px}
+
+.about-location{font-size:11px}
+.feature-row strong{font-size:14px}
+.feature-row p{font-size:13px;line-height:1.7}
+.feature-icon{font-size:10px}
+
+.price-tier{font-size:11px}
+.price-badge,.price-badge.popular{font-size:9px}
+.price-card>p{font-size:14px;line-height:1.7}
+.price-card li{font-size:13px;line-height:1.5;padding:12px 0}
+.price small{font-size:12px}
+.trial-note{font-size:12px;line-height:1.6}
+
+.contact-card>p{font-size:15px;line-height:1.75}
+.contact-list span{font-size:11px}
+.contact-list strong,.contact-list a{font-size:13px}
+.contact-note{font-size:12px;line-height:1.6}
+.form-intro span{font-size:11px}
+.form-intro strong{font-size:24px}
+.field label{font-size:12px}
+.field input,.field select,.field textarea{font-size:14px}
+.form-consent{font-size:12px;line-height:1.65}
+
+/* Keep the background alive without returning to decorative AI-style orbs. */
 .hero::after{
   content:'';
   position:absolute;
@@ -144,6 +156,10 @@ body>header,body>main,body>footer{position:relative;z-index:1}
   .ambient-field::before,.ambient-field::after{width:95vw;opacity:.32}
   .scroll-progress{height:2px}
   .hero h1{font-size:clamp(44px,13vw,64px);line-height:.97}
+  .hero-lead{font-size:16px}
+  .learning-intro{font-size:13.5px}
+  .path-step strong{font-size:13.5px}
+  .path-step div span{font-size:12px}
 }
 
 @media(prefers-reduced-motion:reduce){
