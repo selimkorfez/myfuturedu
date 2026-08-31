@@ -33,6 +33,26 @@ if (menuButton && navLinks) {
   });
 }
 
+// Present the former pricing area as enquiry-only lesson packages.
+const packagesNavLink = document.querySelector('.nav-links a[href="#pricing"]');
+if (packagesNavLink) packagesNavLink.textContent = 'Packages';
+
+const packagesSection = document.querySelector('#pricing');
+if (packagesSection) {
+  const kicker = packagesSection.querySelector('.section-kicker');
+  const heading = packagesSection.querySelector('.section-title-wrap h2');
+  const intro = packagesSection.querySelector('.section-title-wrap p');
+
+  if (kicker) kicker.textContent = 'Packages';
+  if (heading) heading.textContent = 'Choose the support package that fits your child.';
+  if (intro) intro.textContent = 'Each package includes lesson materials and learning support. Send an enquiry and we’ll confirm the best fit and current availability.';
+
+  packagesSection.querySelectorAll('.price').forEach((price) => price.remove());
+  packagesSection.querySelectorAll('.price-card .button').forEach((button) => {
+    button.innerHTML = 'Enquire now <span aria-hidden="true">→</span>';
+  });
+}
+
 document.querySelectorAll('[data-year]').forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
