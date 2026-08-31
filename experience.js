@@ -56,19 +56,51 @@
     let targetY = window.innerHeight * .18;
     let currentX = targetX;
     let currentY = targetY;
+
+    const pointerLight = document.createElement('div');
+    pointerLight.setAttribute('aria-hidden', 'true');
+    Object.assign(pointerLight.style, {
+      position: 'fixed',
+      left: '0',
+      top: '0',
+      width: '760px',
+      height: '560px',
+      pointerEvents: 'none',
+      zIndex: '0',
+      opacity: '.9',
+      borderRadius: '50%',
+      background: 'radial-gradient(ellipse at center, rgba(37,99,235,.18) 0%, rgba(37,99,235,.10) 28%, rgba(56,189,248,.045) 48%, rgba(37,99,235,0) 72%)',
+      filter: 'blur(22px)',
+      transform: 'translate3d(-1000px,-1000px,0)',
+      willChange: 'transform'
+    });
+    body.prepend(pointerLight);
+
     const tick = () => {
-      currentX += (targetX - currentX) * .085;
-      currentY += (targetY - currentY) * .085;
+      currentX += (targetX - currentX) * .105;
+      currentY += (targetY - currentY) * .105;
       document.documentElement.style.setProperty('--mx', `${(currentX / window.innerWidth) * 100}%`);
       document.documentElement.style.setProperty('--my', `${(currentY / window.innerHeight) * 100}%`);
+      pointerLight.style.transform = `translate3d(${currentX - 380}px,${currentY - 280}px,0)`;
       requestAnimationFrame(tick);
     };
+
     window.addEventListener('pointermove', (event) => {
       targetX = event.clientX;
       targetY = event.clientY;
     }, { passive: true });
+
+    window.addEventListener('pointerleave', () => {
+      pointerLight.style.opacity = '.45';
+    });
+    window.addEventListener('pointerenter', () => {
+      pointerLight.style.opacity = '.9';
+    });
+
     requestAnimationFrame(tick);
   }
+
+  document.querySelectorAll('.cursor-halo,.cursor-dot').forEach(el => el.remove());
 
   const hero = document.querySelector('.hero');
   if (hero && !reduced.matches) {
